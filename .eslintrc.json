@@ -100,7 +100,6 @@
       "specialLink": ["hrefLeft", "hrefRight"],
       "aspects": ["invalidHref", "preferButton"]
     }],
-    "@next/next/no-img-element": "off",
     "react/require-default-props": "off",
     "react/destructuring-assignment": "off"
   },
