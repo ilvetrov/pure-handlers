@@ -116,7 +116,8 @@
       "files": ["./*.js"],
       "rules": {
         "@typescript-eslint/no-var-requires": "off",
-        "import/extensions": "off"
+        "import/extensions": "off",
+        "no-console": "off"
       }
     }
   ],

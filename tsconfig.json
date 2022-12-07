@@ -16,7 +16,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "esModuleInterop": true,
-    "strict": true
+    "strict": true,
+    "inlineSources": true
   },
   "include": ["src", "**/*.js"],
   "exclude": ["node_modules", "dist", "example"]

@@ -1,35 +1,51 @@
-import sass from 'rollup-plugin-sass'
+import typescript from '@rollup/plugin-typescript'
 import { terser } from 'rollup-plugin-terser'
-import typescript from 'rollup-plugin-typescript2'
 import pkg from './package.json'
 
 export default [
   {
-    input: 'src/index.ts',
+    input: 'src/pure-handlers.ts',
     output: [
       {
-        file: pkg.main,
+        file: pkg.exports['.'],
+        format: 'es',
+        exports: 'named',
+        sourcemap: true,
+      },
+    ],
+    plugins: [typescript({ include: ['src/pure-handlers.ts'] })],
+  },
+  {
+    input: 'src/pure-handlers.ts',
+    output: [
+      {
+        file: pkg.exports['./browser'],
         format: 'umd',
         exports: 'named',
         sourcemap: true,
-        strict: false,
         name: 'PureHandlers',
       },
     ],
-    plugins: [sass({ insert: true }), typescript(), terser()],
+    plugins: [typescript({ include: ['src/pure-handlers.ts'], declaration: false }), terser()],
   },
   {
-    input: 'src/react.ts',
+    input: 'src/react/react.ts',
     output: [
       {
-        file: pkg.exports.react,
-        format: 'cjs',
+        file: pkg.exports['./react'],
+        format: 'es',
         exports: 'named',
         sourcemap: true,
-        strict: false,
       },
     ],
-    plugins: [sass({ insert: true }), typescript(), terser()],
-    external: ['react', 'react-dom'],
+    plugins: [typescript({ rootDir: './src/react' })],
+    external: ['react', 'react-dom', '../pure-handlers'],
+    onwarn(warning) {
+      if (/is not under 'rootDir'/.test(warning.message)) {
+        return
+      }
+
+      console.error(warning)
+    },
   },
 ]

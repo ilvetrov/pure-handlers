@@ -4,13 +4,32 @@
   "description": "PureHandlers is a helper to destroy all your handlers at once",
   "author": "ilvetrov",
   "license": "Apache-2.0",
-  "repository": "ilvetrov/pure-handlers",
-  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ilvetrov/pure-handlers.git"
+  },
+  "type": "module",
+  "main": "./dist/pure-handlers.js",
+  "module": "./dist/pure-handlers.js",
+  "typings": "./dist/pure-handlers.d.ts",
   "exports": {
-    "react": "./dist/react.js"
+    ".": "./dist/pure-handlers.js",
+    "./browser": "./dist/browser/pure-handlers.browser.min.js",
+    "./react": "./dist/react/react.js",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "react": [
+        "dist/react/react.d.ts"
+      ],
+      "browser": [
+        "dist/pure-handlers.d.ts"
+      ]
+    }
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">= 0.12.8"
   },
   "scripts": {
     "lint": "eslint .",
@@ -38,6 +57,7 @@
     "react-dom": ">= 16.8.0"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^10.0.1",
     "@testing-library/react": "^9.0.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/jest": "^28.1.8",
@@ -66,10 +86,12 @@
     "rollup": "^2.78.1",
     "rollup-plugin-sass": "^1.2.13",
     "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.33.0",
     "ts-jest": "^28.0.8",
     "typescript": "4.7.4"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "react",
     "react hooks"

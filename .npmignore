@@ -1,6 +1,0 @@
-.gitignore
-.prettierrc
-.eslintignore
-.eslintrc.json
-rollup.config.js
-tsconfig.json
