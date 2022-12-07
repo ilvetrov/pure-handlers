@@ -41,4 +41,20 @@ export class PureHandlers {
       element.removeEventListener(type, listener, options)
     })
   }
+
+  setTimeout(callback: (...args: any[]) => void, ms: number, ...args: any[]): Destroyer {
+    const timeoutId = setTimeout(() => callback(args), ms)
+
+    return this.addDestroyer(() => {
+      clearTimeout(timeoutId)
+    })
+  }
+
+  setInterval(callback: (...args: any[]) => void, ms: number, ...args: any[]): Destroyer {
+    const intervalId = setInterval(() => callback(args), ms)
+
+    return this.addDestroyer(() => {
+      clearInterval(intervalId)
+    })
+  }
 }
