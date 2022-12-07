@@ -1,20 +1,20 @@
 {
   "name": "pure-handlers",
-  "version": "2.0.0",
+  "version": "3.0.0-0",
   "description": "PureHandlers is a helper to destroy all your handlers at once",
-  "typings": "dist/pure-handlers.d.ts",
+  "typings": "pure-handlers.d.ts",
   "type": "module",
-  "main": "./dist/pure-handlers.js",
-  "module": "./dist/pure-handlers.js",
+  "main": "./pure-handlers.js",
+  "module": "./pure-handlers.js",
   "exports": {
-    ".": "./dist/pure-handlers.js",
-    "./react": "./dist/react/react.js",
+    ".": "./pure-handlers.js",
+    "./react": "./react/index.js",
     "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
       "react": [
-        "dist/react/react.d.ts"
+        "react/index.d.ts"
       ]
     }
   },
