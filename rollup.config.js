@@ -1,15 +1,13 @@
-import { readFileSync, writeFileSync } from 'fs'
 import typescript from '@rollup/plugin-typescript'
 import { terser } from 'rollup-plugin-terser'
-
-writeFileSync('./dist/package.json', readFileSync('./package.json'))
+import pkg from './package.json'
 
 export default [
   {
     input: 'src/pure-handlers.ts',
     output: [
       {
-        file: './dist/pure-handlers.js',
+        file: pkg.exports['.'],
         format: 'es',
         exports: 'named',
         sourcemap: true,
@@ -21,7 +19,7 @@ export default [
     input: 'src/pure-handlers.ts',
     output: [
       {
-        file: './dist/browser/pure-handlers.browser.min.js',
+        file: pkg.exports['./browser'],
         format: 'umd',
         exports: 'named',
         sourcemap: true,
@@ -31,16 +29,16 @@ export default [
     plugins: [typescript({ include: ['src/pure-handlers.ts'], declaration: false }), terser()],
   },
   {
-    input: 'src/react/index.ts',
+    input: 'src/react/react.ts',
     output: [
       {
-        file: './dist/react/index.js',
+        file: pkg.exports['./react'],
         format: 'es',
         exports: 'named',
-        sourcemap: false,
+        sourcemap: true,
       },
     ],
-    plugins: [typescript({ rootDir: './src/react', sourceMap: false, inlineSources: false })],
+    plugins: [typescript({ rootDir: './src/react' })],
     external: ['react', 'react-dom', '../pure-handlers'],
     onwarn(warning) {
       if (/is not under 'rootDir'/.test(warning.message)) {
