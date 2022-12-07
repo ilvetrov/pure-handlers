@@ -1,6 +1,6 @@
 export type Destroyer = () => void
 
-export default class PureHandlers {
+export class PureHandlers {
   destroyers: Set<Destroyer>
 
   constructor() {

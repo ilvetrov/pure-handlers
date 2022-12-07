@@ -19,7 +19,7 @@ export default [
     input: 'src/pure-handlers.ts',
     output: [
       {
-        file: pkg.exports['./browser'],
+        file: './dist/browser/pure-handlers.browser.min.js',
         format: 'umd',
         exports: 'named',
         sourcemap: true,
