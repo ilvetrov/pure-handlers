@@ -2,21 +2,31 @@
   "name": "pure-handlers",
   "version": "3.0.0-0",
   "description": "PureHandlers is a helper to destroy all your handlers at once",
-  "typings": "pure-handlers.d.ts",
+  "author": "ilvetrov",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ilvetrov/pure-handlers.git"
+  },
   "type": "module",
-  "main": "./pure-handlers.js",
-  "module": "./pure-handlers.js",
+  "main": "./dist/pure-handlers.js",
+  "module": "./dist/pure-handlers.js",
+  "typings": "./dist/pure-handlers.d.ts",
   "exports": {
-    ".": "./pure-handlers.js",
-    "./react": "./react/index.js",
+    ".": "./dist/pure-handlers.js",
+    "./browser": "./dist/browser/pure-handlers.browser.min.js",
+    "./react": "./dist/react/react.js",
     "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
       "react": [
-        "react/index.d.ts"
+        "dist/react/react.d.ts"
       ]
     }
+  },
+  "engines": {
+    "node": ">= 0.12.8"
   },
   "scripts": {
     "lint": "eslint .",
@@ -25,18 +35,19 @@
     "test": "echo \"jest is disabled for init\"",
     "prepublishOnly": "yarn build"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ilvetrov/pure-handlers.git"
-  },
-  "keywords": [
-    "react",
-    "react hooks"
-  ],
-  "author": "ilvetrov",
-  "license": "Apache-2.0",
-  "engines": {
-    "node": ">= 0.12.8"
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testEnvironment": "jsdom",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/dist/"
+    ]
   },
   "peerDependencies": {
     "react": ">= 16.8.0",
@@ -71,21 +82,11 @@
     "ts-jest": "^28.0.8",
     "typescript": "4.7.4"
   },
-  "jest": {
-    "transform": {
-      ".(ts|tsx)": "ts-jest"
-    },
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "testEnvironment": "jsdom",
-    "modulePathIgnorePatterns": [
-      "<rootDir>/dist/"
-    ]
-  },
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "react",
+    "react hooks"
   ]
 }
