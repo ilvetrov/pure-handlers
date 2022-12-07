@@ -1,6 +1,6 @@
 {
   "name": "pure-handlers",
-  "version": "2.0.0",
+  "version": "3.0.0-0",
   "description": "PureHandlers is a helper to destroy all your handlers at once",
   "typings": "dist/pure-handlers.d.ts",
   "type": "module",
