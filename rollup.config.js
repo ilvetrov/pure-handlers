@@ -21,7 +21,6 @@ export default [
       {
         file: pkg.exports['./browser'],
         format: 'umd',
-        exports: 'named',
         sourcemap: true,
         name: 'PureHandlers',
       },
