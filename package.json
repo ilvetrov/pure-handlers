@@ -1,6 +1,6 @@
 {
   "name": "pure-handlers",
-  "version": "3.0.0",
+  "version": "3.1.0-0",
   "description": "PureHandlers is a helper to destroy all your handlers at once",
   "author": "ilvetrov",
   "license": "Apache-2.0",
