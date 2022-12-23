@@ -8,14 +8,19 @@
     "type": "git",
     "url": "https://github.com/ilvetrov/pure-handlers.git"
   },
-  "type": "module",
   "main": "./dist/pure-handlers.js",
-  "module": "./dist/pure-handlers.js",
+  "module": "./dist/pure-handlers.mjs",
   "typings": "./dist/pure-handlers.d.ts",
   "exports": {
-    ".": "./dist/pure-handlers.js",
+    ".": {
+      "import": "./dist/pure-handlers.mjs",
+      "require": "./dist/pure-handlers.js"
+    },
     "./browser": "./dist/browser/pure-handlers.browser.min.js",
-    "./react": "./dist/react/react.js",
+    "./react": {
+      "import": "./dist/react/react.mjs",
+      "require": "./dist/react/react.js"
+    },
     "./package.json": "./package.json"
   },
   "typesVersions": {
