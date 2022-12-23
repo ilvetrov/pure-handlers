@@ -79,11 +79,7 @@ export default function MyOwnAwesomeClock() {
     return () => pureHandlers.destroy()
   }, [])
 
-  return (
-    <>
-      <span>Current second: {second}</span>
-    </>
-  )
+  return <span>Current second: {second}</span>
 }
 ```
 
@@ -104,11 +100,7 @@ export default function MyOwnAwesomeClock() {
     }, 1000)
   }, [])
 
-  return (
-    <>
-      <span>Current second: {second}</span>
-    </>
-  )
+  return <span>Current second: {second}</span>
 }
 ```
 
