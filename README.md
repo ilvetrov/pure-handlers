@@ -1,4 +1,6 @@
-# PureHandlers
+<p>
+  <img src="https://raw.githubusercontent.com/ilvetrov/pure-handlers/main/logo.svg" width="206" height="90" />
+</p>
 
 PureHandlers is a helper to destroy all your handlers at once.
 
